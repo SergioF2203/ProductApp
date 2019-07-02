@@ -1,14 +1,11 @@
 import React from 'react';
-import {Typography, Button, Grid, Link} from "@material-ui/core";
+import {Typography, Button, Grid} from "@material-ui/core";
 import {makeStyles} from '@material-ui/core/styles';
 
-import LinkButton from '../linkButton';
 import Footer from "../footer";
+import TableData from "../tableData";
 
 const useStyles = makeStyles(theme => ({
-    link:{
-        margin: theme.spacing(1)
-    },
     button: {
         margin: theme.spacing(3),
     },
@@ -25,11 +22,12 @@ export default function App() {
                 container
                 direction="row"
                 justify="flex-end">
-                <Button className={classes.button}>Log IN</Button>
+                <Button href='#' color="primary" className={classes.button}>Log IN</Button>
             </Grid>
             <Typography variant="h3">
-                Product List
+                Products List
             </Typography>
+            <TableData/>
             <Footer/>
         </div>
     )
