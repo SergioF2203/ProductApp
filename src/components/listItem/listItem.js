@@ -29,31 +29,43 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const categories = [
-    {
-        id: '100',
-        label: 'Juice and Hot Dairy',
-    },
-    {
-        id: '200',
-        label: 'Beverage',
-    },
-    {
-        id: '300',
-        label: 'Snack',
-    }
-];
+// const categories = [
+//     {
+//         id: '100',
+//         label: 'Juice and Hot Dairy',
+//     },
+//     {
+//         id: '200',
+//         label: 'Beverage',
+//     },
+//     {
+//         id: '300',
+//         label: 'Snack',
+//     }
+// ];
+//
+// const activity = [
+//     {
+//         id: 'true',
+//         value: 'true'
+//     },
+//     {
+//         id: 'false',
+//         value: 'false'
+//     }
+// ];
 
-export default function ListItem() {
+
+const ListItem = props => {
     const classes = useStyles();
 
-    const [values, setValues] = React.useState({
-        categoryID: '100'
-    });
-
-    const handleChange = name => event => {
-        setValues({ ...values, [name]: event.target.value });
-    };
+    // const [values, setValues] = React.useState({
+    //     categoryID: '100'
+    // });
+    //
+    // const handleChange = name => event => {
+    //     setValues({ ...values, [name]: event.target.value });
+    // };
 
 
 
@@ -83,24 +95,48 @@ export default function ListItem() {
                         />
                     </Grid>
                 </Grid>
+                <Grid>
+                    <TextField
+                        id="standard-select-currency"
+                        select
+                        label={'Category'}
+                        className={classes.textField}
+                        value={props.values}
+                        onChange={props.handleChange('categoryID')}
+                        SelectProps={{
+                            MenuProps: {
+                                className: classes.menu,
+                            },
+                        }}
+                        helperText="You can change a category"
+                        margin="normal"
+                    >
+                        {props.categories.map(option => (
+                            <MenuItem key={option.id} value={option.id}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+
+                </Grid>
                 <TextField
                     id="standard-select-currency"
                     select
-                    label={'Category'}
+                    label={'Active'}
                     className={classes.textField}
-                    value={values.categoryID}
-                    onChange={handleChange('categoryID')}
+                    value={props.active}
+                    onChange={props.handleChange('active')}
                     SelectProps={{
                         MenuProps: {
                             className: classes.menu,
                         },
                     }}
-                    helperText="You can change a category"
+                    helperText="You can change an activity"
                     margin="normal"
                 >
-                    {categories.map(option => (
-                        <MenuItem key={option.id} value={option.id}>
-                            {option.label}
+                    {props.activity.map(option => (
+                        <MenuItem key={option.id} value={option.value}>
+                            {option.value}
                         </MenuItem>
                     ))}
                 </TextField>
@@ -113,4 +149,6 @@ export default function ListItem() {
             </div>
         </div>
     );
-}
+};
+
+export default ListItem;

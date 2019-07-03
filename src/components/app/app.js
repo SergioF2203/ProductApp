@@ -7,7 +7,7 @@ import TableData from "../tableData";
 import ModalData from "../modalData";
 import TableDataContainer from '../../containers/tableData';
 import CardData from '../../components/cardData';
-import ListItem from '../../components/listItem';
+import ListItemContainer from '../../containers/listItem';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -37,7 +37,7 @@ export default function App() {
 
             {/*<ModalData/>*/}
 
-            <ListItem/>
+            <ListItemContainer/>
 
             <Footer/>
         </div>
