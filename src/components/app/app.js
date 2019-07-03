@@ -6,6 +6,8 @@ import Footer from "../footer";
 import TableData from "../tableData";
 import ModalData from "../modalData";
 import TableDataContainer from '../../containers/tableData';
+import CardData from '../../components/cardData';
+import ListItem from '../../components/listItem';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -29,9 +31,13 @@ export default function App() {
             <Typography variant="h3" style={{margin: '25px'}}>
                 Products List
             </Typography>
-            <TableDataContainer/>
 
-            <ModalData/>
+            {/*<TableDataContainer/>*/}
+
+
+            {/*<ModalData/>*/}
+
+            <ListItem/>
 
             <Footer/>
         </div>
