@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import Footer from "../footer";
 import TableData from "../tableData";
+import ModalData from "../modalData";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -24,10 +25,13 @@ export default function App() {
                 justify="flex-end">
                 <Button href='#' color="primary" className={classes.button}>Log IN</Button>
             </Grid>
-            <Typography variant="h3">
+            <Typography variant="h3" style={{margin: '25px'}}>
                 Products List
             </Typography>
             <TableData/>
+
+            <ModalData/>
+
             <Footer/>
         </div>
     )
