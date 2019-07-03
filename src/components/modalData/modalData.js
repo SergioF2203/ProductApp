@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const percent = 50;
 
-export default function SimpleModal() {
+export default function ModalData() {
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
@@ -48,7 +48,6 @@ export default function SimpleModal() {
                     <Typography variant="subtitle1" id="simple-modal-description">
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography>
-                    <SimpleModal />
                 </div>
             </Modal>
         </div>

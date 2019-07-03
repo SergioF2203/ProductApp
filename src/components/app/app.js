@@ -5,6 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Footer from "../footer";
 import TableData from "../tableData";
 import ModalData from "../modalData";
+import TableDataContainer from '../../containers/tableData';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -28,7 +29,7 @@ export default function App() {
             <Typography variant="h3" style={{margin: '25px'}}>
                 Products List
             </Typography>
-            <TableData/>
+            <TableDataContainer/>
 
             <ModalData/>
 
