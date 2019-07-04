@@ -11,10 +11,10 @@ const TableData = (props) => {
 
     return (
         <Grid container justify="center">
-            <Typography variant="h3" style={{margin: '25px'}}>
-                Products List
-            </Typography>
-            <Grid item xs={9}>
+            <Grid item xs={6}>
+                <Typography variant="h3" style={{margin: '25px'}}>
+                    Products List
+                </Typography>
                 <Paper>
                     <Table>
                         <TableHead>

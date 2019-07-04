@@ -19,14 +19,19 @@ export default class TableDataContainer extends React.Component {
     };
 
     componentDidMount() {
-        this.services.getProducts().then(data=>this.setState({
+        this.services.getProducts().then(data => this.setState({
             rows: data
         }))
+
+        console.log(this.services.getCategories());
     }
 
 
     handleClickOnRow = (id) => {
-        this.setState({isSelected: [id]})
+        this.setState({isSelected: [id]});
+        this.services.getProductById(id).then(data=>(
+            console.log(data)
+        ))
     };
 
     isSelectedItem = (id) => {

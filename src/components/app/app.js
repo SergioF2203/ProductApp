@@ -6,8 +6,8 @@ import ProductPage from '../../components/pages/productPage'
 export default function App() {
     return (
         <div>
-            {/*<MainPage/>*/}
-            <ProductPage/>
+            <MainPage/>
+            {/*<ProductPage/>*/}
         </div>
     )
 };

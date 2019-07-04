@@ -11,10 +11,12 @@ import ProductAPI from "../../services/productAPI_services";
 
 
 export default class ListItemContainer extends React.Component {
+
     services = new ProductAPI();
 
 
     state = {
+        id: 300,
         categoryID: '100',
         active: true,
         categories: [
@@ -48,23 +50,26 @@ export default class ListItemContainer extends React.Component {
         this.setState({[name]: event.target.value});
     };
 
-    handleSave = () => {
-        console.log('save working');
-        // console.log(this.services.getProducts());
-        // this.services.getProducts().then(value=>{
-        //     // value.map(item=>(console.log(item.name)))
-        //     console.log(value)
-        // });
-
-    };
 
     handleExit() {
         console.log('exit working');
-    }
+    };
+
+    handleAdd() {
+
+    };
+
+    handleUpdate() {
+
+    };
+
+    handleRemove = () => {
+        this.services.removeProduct(this.state.id);
+        console.log('done');
+    };
 
 
     render() {
-        console.log(this.services);
 
         return (
             <ListItem
@@ -73,8 +78,10 @@ export default class ListItemContainer extends React.Component {
                 categories={this.state.categories}
                 active={this.state.active}
                 activity={this.state.activity}
-                handleSave={this.handleSave}
+                handleAdd={this.handleAdd}
                 handleExit={this.handleExit}
+                handleRemove={this.handleRemove}
+                handleUpdate={this.handleUpdate}
             />
         );
     }

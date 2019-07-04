@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +14,9 @@ const ListItem = props => {
     const classes = useStyles();
 
     return (
-        <form onSubmit={()=>{console.log('...')}}>
+        <form onSubmit={() => {
+            console.log('...')
+        }}>
             <div className={classes.root}>
                 <div className={classes.section1}>
                     <Typography variant='h3'>
@@ -86,10 +88,16 @@ const ListItem = props => {
                         ))}
                     </TextField>
                 </div>
-                <Divider variant="middle" />
+                <Divider variant="middle"/>
                 <div className={classes.section3}>
-                    <Button color="primary" onClick={props.handleSave}>Save</Button>
-                    <Button color="primary" onClick={props.handleExit}>Exit</Button>
+                    <Grid container justify='space-between'>
+                        <Grid>
+                            <Button color="primary" onClick={props.handleAdd}>Add</Button>
+                            <Button color="primary" onClick={props.handleUpdate}>Update</Button>
+                        </Grid>
+                        <Button color="secondary" onClick={props.handleRemove}>Remove</Button>
+                        <Button color="primary" onClick={props.handleExit}>Exit</Button>
+                    </Grid>
 
                 </div>
             </div>
