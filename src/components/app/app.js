@@ -8,6 +8,7 @@ import ModalData from "../modalData";
 import TableDataContainer from '../../containers/tableData';
 import CardData from '../../components/cardData';
 import ListItemContainer from '../../containers/listItem';
+import ProductAPI from '../../services/productAPI_services';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -18,6 +19,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+
+
 export default function App() {
     const classes = useStyles();
     return (
@@ -26,11 +29,8 @@ export default function App() {
                 container
                 direction="row"
                 justify="flex-end">
-                <Button href='#' color="primary" className={classes.button}>Log IN</Button>
+                <Button href='#' color="primary" className={classes.button} >Log IN</Button>
             </Grid>
-            <Typography variant="h3" style={{margin: '25px'}}>
-                Products List
-            </Typography>
 
             {/*<TableDataContainer/>*/}
 

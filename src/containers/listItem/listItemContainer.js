@@ -1,36 +1,20 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ListItem from '../../components/listItem';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import ProductAPI from "../../services/productAPI_services";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 460,
-        backgroundColor: theme.palette.background.paper,
-    },
-    chip: {
-        marginRight: theme.spacing(1),
-    },
-    section1: {
-        margin: theme.spacing(3, 2),
-    },
-    section2: {
-        margin: theme.spacing(2),
-    },
-    section3: {
-        margin: theme.spacing(3, 1, 1),
-    },
-}));
+// import axios from 'axios';
+//
+// axios.defaults.baseURL = '/localhost:44307/api';
+// axios.defaults.headers.post['Content-type'] = 'application/json';
+// axios.defaults.headers.get['Content-type'] = 'application/json';
 
 
 
 export default class ListItemContainer extends React.Component {
+    services = new ProductAPI();
+
+
     state = {
         categoryID: '100',
         active: true,
@@ -65,8 +49,20 @@ export default class ListItemContainer extends React.Component {
         this.setState({[name]: event.target.value});
     };
 
+    handleSave = () => {
+        console.log('save working');
+
+        console.log(this.services.getProducts());
+    };
+
+    handleExit(){
+        console.log('exit working');
+    }
+
 
     render() {
+        console.log(this.services);
+
         return (
             <ListItem
                 handleChange={this.handleChange}
@@ -74,7 +70,8 @@ export default class ListItemContainer extends React.Component {
                 categories={this.state.categories}
                 active={this.state.active}
                 activity={this.state.activity}
-
+                handleSave={this.handleSave}
+                handleExit={this.handleExit}
             />
         );
     }

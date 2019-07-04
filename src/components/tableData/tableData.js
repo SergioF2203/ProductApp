@@ -5,12 +5,15 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Grid} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 
 const TableData = (props) => {
 
     return (
         <Grid container justify="center">
+            <Typography variant="h3" style={{margin: '25px'}}>
+                Products List
+            </Typography>
             <Grid item xs={9}>
                 <Paper>
                     <Table>
