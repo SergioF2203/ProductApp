@@ -7,23 +7,22 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Grid} from "@material-ui/core";
 import TableData from '../../components/tableData';
+import APIProduct from '../../services/productAPI_services';
 
 
 export default class TableDataContainer extends React.Component {
+    services = new APIProduct();
+
     state = {
         isSelected: [],
-        rows: [
-            this.createData(100, 'Sandora', 'Juice', true, 22.12),
-            this.createData(200, 'Pepsi MAX', 'Beverage', true, 14.58),
-            this.createData(3, 'Lays', 'Snack', true, 19.30),
-            this.createData(7, 'Mirinda', 'Beverage', true, 22.30),
-            this.createData(8, '7UP', 'Beverage', true, 15.48),
-        ]
+        rows: []
     };
 
-    createData(id, name, category, active, price) {
-        return {id, name, category, active, price};
-    };
+    componentDidMount() {
+        this.services.getProducts().then(data=>this.setState({
+            rows: data
+        }))
+    }
 
 
     handleClickOnRow = (name) => {

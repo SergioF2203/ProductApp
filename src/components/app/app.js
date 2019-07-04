@@ -32,12 +32,12 @@ export default function App() {
                 <Button href='#' color="primary" className={classes.button} >Log IN</Button>
             </Grid>
 
-            {/*<TableDataContainer/>*/}
+            <TableDataContainer/>
 
 
             {/*<ModalData/>*/}
 
-            <ListItemContainer/>
+            {/*<ListItemContainer/>*/}
 
             <Footer/>
         </div>

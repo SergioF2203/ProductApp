@@ -10,7 +10,6 @@ import ProductAPI from "../../services/productAPI_services";
 // axios.defaults.headers.get['Content-type'] = 'application/json';
 
 
-
 export default class ListItemContainer extends React.Component {
     services = new ProductAPI();
 
@@ -51,11 +50,15 @@ export default class ListItemContainer extends React.Component {
 
     handleSave = () => {
         console.log('save working');
+        // console.log(this.services.getProducts());
+        // this.services.getProducts().then(value=>{
+        //     // value.map(item=>(console.log(item.name)))
+        //     console.log(value)
+        // });
 
-        console.log(this.services.getProducts());
     };
 
-    handleExit(){
+    handleExit() {
         console.log('exit working');
     }
 
