@@ -31,8 +31,8 @@ const TableData = (props) => {
                                 <TableRow style={{cursor: "pointer"}}
                                           key={row.name}
                                           hover
-                                          selected={props.isSelected(row.name)}
-                                          onClick={() => props.handleClick(row.name)}>
+                                          selected={props.isSelected(row.id)}
+                                          onClick={() => props.handleClick(row.id)}>
                                     <TableCell style={{width: '10%'}}
                                                component="th"
                                                scope="row"

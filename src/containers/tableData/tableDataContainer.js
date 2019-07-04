@@ -25,12 +25,12 @@ export default class TableDataContainer extends React.Component {
     }
 
 
-    handleClickOnRow = (name) => {
-        this.setState({isSelected: [name]})
+    handleClickOnRow = (id) => {
+        this.setState({isSelected: [id]})
     };
 
-    isSelectedItem = (name) => {
-        if (name === this.state.isSelected[0]) {
+    isSelectedItem = (id) => {
+        if (id === this.state.isSelected[0]) {
             return true;
         }
     };

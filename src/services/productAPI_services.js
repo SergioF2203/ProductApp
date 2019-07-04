@@ -22,11 +22,15 @@ export default class productAPIservices {
     }
 
     _transformProductsData = product => {
+        let isactive = 'Active';
+        if(product.isActive === false){
+            isactive = 'Inactive'
+        }
         return {
             id: product.id,
             name: product.name,
             price: product.price,
-            active: product.isActive,
+            active: isactive,
             category: product.category.name
         }
     }

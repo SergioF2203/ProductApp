@@ -5,6 +5,9 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         maxWidth: 460,
         backgroundColor: theme.palette.background.paper,
+        marginTop: '5%',
+        marginLeft: '5%',
+        marginBottom: '7%'
     },
     chip: {
         marginRight: theme.spacing(1),
