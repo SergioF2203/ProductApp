@@ -29,13 +29,24 @@ export default class productAPIservices {
         return res.data.map(this._tranformCategoriesData)
     };
 
-    async removeProduct(id){
+    async removeProduct(id) {
         await axios.delete(`/product/${id}`, config);
+    }
+
+    async addProduct({product}) {
+        const res = await axios.post('/product',
+            {
+                "name": product.name,
+                "price": product.price,
+                "categoryId": product.categoryId
+            }, config);
+
+        return res.status;
     }
 
     _transformProductsData = product => {
         let isactive = 'Active';
-        if (product.isActive === false) {
+        if (!product.isActive) {
             isactive = 'Inactive'
         }
         return {

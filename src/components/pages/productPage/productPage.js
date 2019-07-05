@@ -2,10 +2,11 @@ import React from 'react';
 import ListItem from '../../../containers/listItem';
 import Footer from '../../../components/footer';
 
-export default function ProductPage() {
+export default function ProductPage (props)  {
     return(
+
         <div>
-            <ListItem/>
+            <ListItem {...props}/>
             <Footer/>
         </div>
     )

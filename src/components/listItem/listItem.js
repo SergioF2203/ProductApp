@@ -26,17 +26,17 @@ const ListItem = props => {
                         <Grid item xs>
                             <TextField
                                 id="name"
-                                label="Sandora"
-                                placeholder="Sandora"
-                                className={classes.textField}
+                                label={props.textFieldName}
+                                placeholder={props.textFieldName}
+                                // className={classes.textField}
                                 margin="normal"
                             />
                         </Grid>
                         <Grid item>
                             <TextField
                                 id="price"
-                                label="UAH 28.10"
-                                placeholder="28.10"
+                                label={'UAH ' + props.textFieldPrice}
+                                placeholder={props.textFieldPrice}
                                 // className={classes.textField}
                                 margin="normal"
                             />

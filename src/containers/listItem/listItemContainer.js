@@ -2,6 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ListItem from '../../components/listItem';
 import ProductAPI from "../../services/productAPI_services";
+import {Redirect} from 'react-router-dom';
 
 // import axios from 'axios';
 //
@@ -16,6 +17,8 @@ export default class ListItemContainer extends React.Component {
 
 
     state = {
+        product: {},
+        redirect: false,
         id: 300,
         categoryID: '100',
         active: true,
@@ -45,14 +48,22 @@ export default class ListItemContainer extends React.Component {
         ]
     };
 
+    componentWillMount() {
+        console.log(this.props.history.location.pathname);
+        this.services.getProductById(this.props.match.params.id).then(data=>(
+            this.setState({product:{...data}})
+        ))
+    }
+
 
     handleChange = name => event => {
         this.setState({[name]: event.target.value});
     };
 
 
-    handleExit() {
-        console.log('exit working');
+    handleExit = () => {
+        console.log('exit');
+        this.setState({redirect: true})
     };
 
     handleAdd() {
@@ -65,11 +76,16 @@ export default class ListItemContainer extends React.Component {
 
     handleRemove = () => {
         this.services.removeProduct(this.state.id);
-        console.log('done');
     };
 
 
     render() {
+        const {redirect} = this.state;
+        if(redirect){
+            return(
+                <Redirect to="/"/>
+            )
+        }
 
         return (
             <ListItem
@@ -82,6 +98,8 @@ export default class ListItemContainer extends React.Component {
                 handleExit={this.handleExit}
                 handleRemove={this.handleRemove}
                 handleUpdate={this.handleUpdate}
+                textFieldName={this.state.product.name}
+                textFieldPrice={this.state.product.price}
             />
         );
     }
