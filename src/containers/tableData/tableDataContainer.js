@@ -8,12 +8,14 @@ import Paper from '@material-ui/core/Paper';
 import {Grid} from "@material-ui/core";
 import TableData from '../../components/tableData';
 import APIProduct from '../../services/productAPI_services';
+import {Redirect} from 'react-router-dom';
 
 
 export default class TableDataContainer extends React.Component {
     services = new APIProduct();
 
     state = {
+        redirect: false,
         isSelected: [],
         rows: []
     };
@@ -28,10 +30,13 @@ export default class TableDataContainer extends React.Component {
 
 
     handleClickOnRow = (id) => {
-        this.setState({isSelected: [id]});
-        this.services.getProductById(id).then(data=>(
-            console.log(data)
-        ))
+        this.setState({
+            isSelected: [id],
+            redirect: true
+        });
+        // this.services.getProductById(id).then(data=>(
+        //     console.log(data)
+        // ))
     };
 
     isSelectedItem = (id) => {
@@ -42,6 +47,12 @@ export default class TableDataContainer extends React.Component {
 
 
     render() {
+        const{redirect} = this.state;
+        if(redirect){
+            return(
+                <Redirect to={{pathname: this.state.isSelected[0]}}/>
+            )
+        }
         return (
             <TableData
                 data={this.state.rows}

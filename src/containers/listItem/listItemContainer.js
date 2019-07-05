@@ -18,24 +18,12 @@ export default class ListItemContainer extends React.Component {
 
     state = {
         product: {},
+        newProduct: {},
         redirect: false,
-        id: 300,
-        categoryID: '100',
+        id: null,
+        // categoryID: '100',
         active: true,
-        categories: [
-            {
-                id: '100',
-                label: 'Juice and Hot Dairy',
-            },
-            {
-                id: '200',
-                label: 'Beverage',
-            },
-            {
-                id: '300',
-                label: 'Snack',
-            }
-        ],
+        categories: [],
         activity: [
             {
                 id: 'true',
@@ -50,9 +38,14 @@ export default class ListItemContainer extends React.Component {
 
     componentWillMount() {
         console.log(this.props.history.location.pathname);
-        this.services.getProductById(this.props.match.params.id).then(data=>(
-            this.setState({product:{...data}})
-        ))
+        this.services.getProductById(this.props.match.params.id).then(data => (
+            this.setState({product: {...data}})
+        ));
+        this.services.getCategories().then(data => (console.log(data)));
+        this.services.getCategories().then(data => (
+            this.setState({categories: data})
+        ));
+
     }
 
 
@@ -60,10 +53,22 @@ export default class ListItemContainer extends React.Component {
         this.setState({[name]: event.target.value});
     };
 
+    handleChangeSelect = name => event => {
+        console.log(event.target);
+        this.setState(prevState => (
+            {
+                product: {
+                    ...prevState.product,
+                    [name]: event.target.value
+                }
+            }))
+    };
 
-    handleExit = () => {
+
+    handleExit = event => {
         console.log('exit');
-        this.setState({redirect: true})
+        this.setState({redirect:true})
+
     };
 
     handleAdd() {
@@ -81,18 +86,19 @@ export default class ListItemContainer extends React.Component {
 
     render() {
         const {redirect} = this.state;
-        if(redirect){
-            return(
+        if (redirect) {
+            return (
                 <Redirect to="/"/>
             )
         }
 
         return (
             <ListItem
+                handleChangeSelect={this.handleChangeSelect}
                 handleChange={this.handleChange}
-                values={this.state.categoryID}
+                values={this.state.product.categoryId}
                 categories={this.state.categories}
-                active={this.state.active}
+                active={this.state.product.active}
                 activity={this.state.activity}
                 handleAdd={this.handleAdd}
                 handleExit={this.handleExit}

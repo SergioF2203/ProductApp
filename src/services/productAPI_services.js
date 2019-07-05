@@ -21,6 +21,7 @@ export default class productAPIservices {
 
     async getProductById(id) {
         const res = await axios.get(`/product/${id}`, config);
+        console.log(res.data);
         return this._transformProductsData(res.data);
     }
 
@@ -54,7 +55,8 @@ export default class productAPIservices {
             name: product.name,
             price: product.price,
             active: isactive,
-            category: product.category.name
+            category: product.category.name,
+            categoryId: product.category.id
         }
     }
 

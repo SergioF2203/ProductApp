@@ -14,9 +14,6 @@ const ListItem = props => {
     const classes = useStyles();
 
     return (
-        <form onSubmit={() => {
-            console.log('...')
-        }}>
             <div className={classes.root}>
                 <div className={classes.section1}>
                     <Typography variant='h3'>
@@ -27,7 +24,7 @@ const ListItem = props => {
                             <TextField
                                 id="name"
                                 label={props.textFieldName}
-                                placeholder={props.textFieldName}
+                                // placeholder={props.textFieldName}
                                 // className={classes.textField}
                                 margin="normal"
                             />
@@ -36,7 +33,7 @@ const ListItem = props => {
                             <TextField
                                 id="price"
                                 label={'UAH ' + props.textFieldPrice}
-                                placeholder={props.textFieldPrice}
+                                // placeholder={props.textFieldPrice}
                                 // className={classes.textField}
                                 margin="normal"
                             />
@@ -44,12 +41,12 @@ const ListItem = props => {
                     </Grid>
                     <Grid>
                         <TextField
-                            id="category"
+                            id="categoryId"
                             select
                             label={'Category'}
                             className={classes.textField}
                             value={props.values}
-                            onChange={props.handleChange('categoryID')}
+                            onChange={props.handleChangeSelect('categoryId')}
                             SelectProps={{
                                 MenuProps: {
                                     className: classes.menu,
@@ -60,7 +57,7 @@ const ListItem = props => {
                         >
                             {props.categories.map(option => (
                                 <MenuItem key={option.id} value={option.id}>
-                                    {option.label}
+                                    {option.name}
                                 </MenuItem>
                             ))}
                         </TextField>
@@ -72,7 +69,7 @@ const ListItem = props => {
                         label={'Active'}
                         className={classes.textField}
                         value={props.active}
-                        onChange={props.handleChange('active')}
+                        onChange={props.handleChangeSelect('active')}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
@@ -101,7 +98,6 @@ const ListItem = props => {
 
                 </div>
             </div>
-        </form>
     );
 };
 
