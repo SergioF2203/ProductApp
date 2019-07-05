@@ -1,14 +1,8 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import ListItem from '../../components/listItem';
 import ProductAPI from "../../services/productAPI_services";
 import {Redirect} from 'react-router-dom';
 
-// import axios from 'axios';
-//
-// axios.defaults.baseURL = '/localhost:44307/api';
-// axios.defaults.headers.post['Content-type'] = 'application/json';
-// axios.defaults.headers.get['Content-type'] = 'application/json';
 
 
 export default class ListItemContainer extends React.Component {
@@ -87,7 +81,7 @@ export default class ListItemContainer extends React.Component {
 
     handleAdd = () => {
         const {product} = this.state;
-        const res = this.services.addProduct({product}).then(
+        this.services.addProduct({product}).then(
             () => this.setState({redirect: true}
             ));
 
@@ -125,10 +119,8 @@ export default class ListItemContainer extends React.Component {
                 categories={this.state.categories}
                 active={this.state.product.active}
                 activity={this.state.activity}
-                handleAdd={this.handleAdd}
                 handleExit={this.handleExit}
                 handleRemove={this.handleRemove}
-                handleUpdate={this.handleUpdate}
                 textFieldName={this.state.product.name}
                 textFieldPrice={this.state.product.price}
             />

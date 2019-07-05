@@ -1,6 +1,4 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -46,14 +44,14 @@ const ListItem = props => {
                             id="categoryId"
                             select
                             label={'Category'}
-                            className={classes.textField}
+                            // className={classes.textField}
                             value={props.values}
                             onChange={props.handleChangeSelect('categoryId')}
-                            SelectProps={{
-                                MenuProps: {
-                                    className: classes.menu,
-                                },
-                            }}
+                            // SelectProps={{
+                            //     MenuProps: {
+                            //         className: classes.menu,
+                            //     },
+                            // }}
                             helperText="You can change a category"
                             margin="normal"
                         >
@@ -69,14 +67,14 @@ const ListItem = props => {
                         id="active"
                         select
                         label={'Active'}
-                        className={classes.textField}
+                        // className={classes.textField}
                         value={props.active}
                         onChange={props.handleChangeSelect('active')}
-                        SelectProps={{
-                            MenuProps: {
-                                className: classes.menu,
-                            },
-                        }}
+                        // SelectProps={{
+                        //     MenuProps: {
+                        //         className: classes.menu,
+                        //     },
+                        // }}
                         helperText="You can change an activity"
                         margin="normal"
                     >
