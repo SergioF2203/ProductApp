@@ -24,6 +24,7 @@ const ListItem = props => {
                             <TextField
                                 id="name"
                                 label={props.textFieldName}
+                                onBlur={props.handleChangeSelect('name')}
                                 // placeholder={props.textFieldName}
                                 // className={classes.textField}
                                 margin="normal"
@@ -33,6 +34,7 @@ const ListItem = props => {
                             <TextField
                                 id="price"
                                 label={'UAH ' + props.textFieldPrice}
+                                onBlur={props.handleChangeSelect('price')}
                                 // placeholder={props.textFieldPrice}
                                 // className={classes.textField}
                                 margin="normal"

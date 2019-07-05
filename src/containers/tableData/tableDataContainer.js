@@ -21,9 +21,10 @@ export default class TableDataContainer extends React.Component {
     };
 
     componentDidMount() {
-        this.services.getProducts().then(data => this.setState({
+        this.services.getProducts().then(data =>
+            this.setState({
             rows: data
-        }))
+        }));
 
         console.log(this.services.getCategories());
     }

@@ -50,16 +50,31 @@ export default class ListItemContainer extends React.Component {
 
 
     handleChange = name => event => {
-        this.setState({[name]: event.target.value});
-    };
-
-    handleChangeSelect = name => event => {
-        console.log(event.target);
+        console.log(name);
+        console.log(event.target.value);
+        // const name = event.target.name;
+        const value = event.target.value;
+        // this.setState({[name]: event.target.value});
+        // console.log(name);
+        // console.log(value);
         this.setState(prevState => (
             {
                 product: {
                     ...prevState.product,
-                    [name]: event.target.value
+                    [name]: value
+                }
+            }))
+    };
+
+    handleChangeSelect = name => event => {
+        console.log(event.target);
+        const value = event.target.value;
+
+        this.setState(prevState => (
+            {
+                product: {
+                    ...prevState.product,
+                    [name]: value
                 }
             }))
     };
@@ -67,7 +82,7 @@ export default class ListItemContainer extends React.Component {
 
     handleExit = event => {
         console.log('exit');
-        this.setState({redirect:true})
+        this.setState({redirect: true})
 
     };
 

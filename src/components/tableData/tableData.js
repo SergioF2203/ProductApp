@@ -41,7 +41,7 @@ const TableData = (props) => {
                                     </TableCell>
                                     <TableCell align="right">{row.name}</TableCell>
                                     <TableCell align="right">{row.category}</TableCell>
-                                    <TableCell align="right">{row.active}</TableCell>
+                                    <TableCell align="right">{row.activeString}</TableCell>
                                     <TableCell style={{width: '10%'}} align="center">{row.price}</TableCell>
                                 </TableRow>
                             ))}
