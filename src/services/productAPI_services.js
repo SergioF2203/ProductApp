@@ -6,7 +6,6 @@ axios.defaults.headers.get['Content-type'] = 'application/json';
 
 const config = {
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
     }
 };
@@ -41,13 +40,25 @@ export default class productAPIservices {
                 "price": product.price,
                 "categoryId": product.categoryId
             }, config);
+        return console.log(res.status);
+    }
+
+    async putProduct({product}){
+        console.log(product.active);
+        const res = await axios.put(`/product/${product.id}`,
+            {
+                "name": product.name,
+                "price": product.price,
+                "categoryId": product.categoryId,
+                "isActive": product.active
+            }, config);
 
         return res.status;
     }
 
     _transformProductsData = product => {
         let isActive = 'Active';
-        if(!product.isActive){
+        if (!product.isActive) {
             isActive = 'Inactive'
         }
 

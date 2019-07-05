@@ -26,7 +26,6 @@ export default class TableDataContainer extends React.Component {
             rows: data
         }));
 
-        console.log(this.services.getCategories());
     }
 
 

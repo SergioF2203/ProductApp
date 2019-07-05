@@ -80,22 +80,30 @@ export default class ListItemContainer extends React.Component {
     };
 
 
-    handleExit = event => {
-        console.log('exit');
+    handleExit = () => {
         this.setState({redirect: true})
 
     };
 
-    handleAdd() {
+    handleAdd = () => {
+        const {product} = this.state;
+        const res = this.services.addProduct({product}).then(
+            () => this.setState({redirect: true}
+            ));
+
 
     };
 
-    handleUpdate() {
+    handleUpdate = () => {
+        const {product} = this.state;
+        this.services.putProduct({product}).then(
+            () => this.setState({redirect: true}
+            ));
 
     };
 
     handleRemove = () => {
-        this.services.removeProduct(this.state.id);
+        this.services.removeProduct(this.state.product.id);
     };
 
 
@@ -109,6 +117,8 @@ export default class ListItemContainer extends React.Component {
 
         return (
             <ListItem
+                handleUpdate={this.handleUpdate}
+                handleAdd={this.handleAdd}
                 handleChangeSelect={this.handleChangeSelect}
                 handleChange={this.handleChange}
                 values={this.state.product.categoryId}
