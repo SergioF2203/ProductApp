@@ -2,6 +2,7 @@ import React from 'react';
 import TableData from '../../components/tableData';
 import APIProduct from '../../services/productAPI_services';
 import {Redirect} from 'react-router-dom';
+import Notifier from '../../containers/notifier';
 
 
 export default class TableDataContainer extends React.Component {
@@ -27,9 +28,6 @@ export default class TableDataContainer extends React.Component {
             isSelected: [id],
             redirect: true
         });
-        // this.services.getProductById(id).then(data=>(
-        //     console.log(data)
-        // ))
     };
 
     isSelectedItem = (id) => {
@@ -47,11 +45,14 @@ export default class TableDataContainer extends React.Component {
             )
         }
         return (
-            <TableData
-                data={this.state.rows}
-                isSelected={this.isSelectedItem}
-                handleClick={this.handleClickOnRow}
-            />
+            <div>
+                <Notifier/>
+                <TableData
+                    data={this.state.rows}
+                    isSelected={this.isSelectedItem}
+                    handleClick={this.handleClickOnRow}
+                />
+            </div>
         );
     }
 }

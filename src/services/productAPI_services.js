@@ -40,7 +40,7 @@ export default class productAPIservices {
                 "price": product.price,
                 "categoryId": product.categoryId
             }, config);
-        return console.log(res.status);
+        return res.status;
     }
 
     async putProduct({product}){

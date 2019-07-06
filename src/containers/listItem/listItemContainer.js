@@ -35,7 +35,6 @@ export default class ListItemContainer extends React.Component {
         this.services.getProductById(this.props.match.params.id).then(data => (
             this.setState({product: {...data}})
         ));
-        this.services.getCategories().then(data => (console.log(data)));
         this.services.getCategories().then(data => (
             this.setState({categories: data})
         ));
@@ -84,6 +83,7 @@ export default class ListItemContainer extends React.Component {
         this.services.addProduct({product}).then(
             () => this.setState({redirect: true}
             ));
+
 
 
     };
