@@ -3,11 +3,11 @@ import Notifier from '../../components/notifier';
 
 
 export default class NotifierContainer extends React.Component {
-    state = {
-        open: true,
-        message: '',
-
-    };
+    // state = {
+    //     open: true,
+    //     message: '',
+    //
+    // };
 
     handleOpen = () => {
         this.setState({open: true})
