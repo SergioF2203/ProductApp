@@ -8,10 +8,11 @@ export default function Notifier(props) {
                 vertical: 'bottom',
                 horizontal: 'left',
             }}
-            open={props.handleOpen}
+            open={props.open}
             autoHideDuration={4000}
-            onClose={props.handleClose}
-            message={<span>Note archived</span>}
+            onRequestClose={props.onClose}
+            onClose={props.onClose}
+            message={<span>{props.message}</span>}
         />
     )
 };

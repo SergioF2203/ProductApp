@@ -1,33 +1,31 @@
 import React from 'react';
 import Notifier from '../../components/notifier';
+import {connect} from "react-redux";
+import store from '../../store';
+import {clearSnackbar} from "../../actions/snackbarActions";
 
 
-export default class NotifierContainer extends React.Component {
-    // state = {
-    //     open: true,
-    //     message: '',
-    //
-    // };
+class NotifierContainer extends React.Component {
 
-    handleOpen = () => {
-        this.setState({open: true})
-    };
-
-    handleClose = (event, reason) =>{
-        // console.log(event);
-        // console.log(reason);
-        if(reason==="clickaway"){
-            return;
-        }
-        this.setState({open:false})
+    handleClose = () => {
+        store.dispatch(clearSnackbar());
     };
 
     render() {
         return (
             <Notifier
-            handleClose={this.handleClose}
-            handleOpen={this.state.open}
+            open={this.props.snackbar.open}
+            message={this.props.snackbar.message}
+            onClose={this.handleClose}
             />
         )
     }
-}
+};
+
+const mapStateToProps = store =>{
+    return {
+        snackbar: store.snackbar
+    }
+};
+
+export default connect(mapStateToProps)(NotifierContainer);
