@@ -19,9 +19,7 @@ export default class TableDataContainer extends React.Component {
             this.setState({
             rows: data
         }));
-
-    }
-
+    };
 
     handleClickOnRow = (id) => {
         this.setState({
@@ -35,7 +33,6 @@ export default class TableDataContainer extends React.Component {
             return true;
         }
     };
-
 
     render() {
         const{redirect} = this.state;

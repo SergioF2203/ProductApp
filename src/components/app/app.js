@@ -8,7 +8,7 @@ export default function App() {
     return (
         <Switch>
             <Route exact path='/' component={MainPage}/>
-            <Route path='/:id' render={props => <ProductPage {...props}/>}/>
+            <Route path='/:id(\d+)' render={props => <ProductPage {...props}/>}/>
         </Switch>
     )
 };

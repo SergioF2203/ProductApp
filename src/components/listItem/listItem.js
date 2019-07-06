@@ -23,8 +23,6 @@ const ListItem = props => {
                                 id="name"
                                 label={props.textFieldName}
                                 onBlur={props.handleChangeSelect('name')}
-                                // placeholder={props.textFieldName}
-                                // className={classes.textField}
                                 margin="normal"
                             />
                         </Grid>
@@ -33,8 +31,6 @@ const ListItem = props => {
                                 id="price"
                                 label={'UAH ' + props.textFieldPrice}
                                 onBlur={props.handleChangeSelect('price')}
-                                // placeholder={props.textFieldPrice}
-                                // className={classes.textField}
                                 margin="normal"
                             />
                         </Grid>
@@ -44,14 +40,8 @@ const ListItem = props => {
                             id="categoryId"
                             select
                             label={'Category'}
-                            // className={classes.textField}
                             value={props.values}
                             onChange={props.handleChangeSelect('categoryId')}
-                            // SelectProps={{
-                            //     MenuProps: {
-                            //         className: classes.menu,
-                            //     },
-                            // }}
                             helperText="You can change a category"
                             margin="normal"
                         >
@@ -67,14 +57,8 @@ const ListItem = props => {
                         id="active"
                         select
                         label={'Active'}
-                        // className={classes.textField}
                         value={props.active}
                         onChange={props.handleChangeSelect('active')}
-                        // SelectProps={{
-                        //     MenuProps: {
-                        //         className: classes.menu,
-                        //     },
-                        // }}
                         helperText="You can change an activity"
                         margin="normal"
                     >

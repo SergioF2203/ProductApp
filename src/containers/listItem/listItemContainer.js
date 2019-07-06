@@ -31,7 +31,6 @@ export default class ListItemContainer extends React.Component {
     };
 
     componentWillMount() {
-        console.log(this.props.history.location.pathname);
         this.services.getProductById(this.props.match.params.id).then(data => (
             this.setState({product: {...data}})
         ));
@@ -43,8 +42,6 @@ export default class ListItemContainer extends React.Component {
 
 
     handleChange = name => event => {
-        console.log(name);
-        console.log(event.target.value);
         const value = event.target.value;
         this.setState(prevState => (
             {
@@ -57,7 +54,6 @@ export default class ListItemContainer extends React.Component {
 
     handleChangeSelect = name => event => {
         const value = event.target.value;
-
         this.setState(prevState => (
             {
                 product: {
@@ -69,33 +65,34 @@ export default class ListItemContainer extends React.Component {
 
 
     handleExit = () => {
-        this.setState({redirect: true})
-
+        this.redirectFunc();
     };
 
     handleAdd = () => {
         const {product} = this.state;
-        this.services.addProduct({product}).then(
-            () => this.setState({redirect: true}
-            ));
+        this.services.addProduct({product})
+            .then(() => this.redirectFunc());
         store.dispatch(showSnackbar('Item was add'));
-
 
 
     };
 
     handleUpdate = () => {
         const {product} = this.state;
-        this.services.putProduct({product}).then(
-            () => this.setState({redirect: true}
-            ));
+        this.services.putProduct({product})
+            .then(() => this.redirectFunc());
         store.dispatch(showSnackbar('Item was edit'))
 
     };
 
     handleRemove = () => {
-        this.services.removeProduct(this.state.product.id);
+        this.services.removeProduct(this.state.product.id)
+            .then(()=>this.redirectFunc());
         store.dispatch(showSnackbar('Item was remove'));
+
+    };
+
+    redirectFunc() {
         this.setState({redirect: true});
     };
 
