@@ -1,39 +1,15 @@
 import React from 'react';
-import {Typography, Button, Grid} from "@material-ui/core";
-import {makeStyles} from '@material-ui/core/styles';
+import {Route, Switch} from 'react-router-dom';
 
-import Footer from "../footer";
-import TableData from "../tableData";
-import ModalData from "../modalData";
-
-const useStyles = makeStyles(theme => ({
-    button: {
-        margin: theme.spacing(3),
-    },
-    input: {
-        display: 'none',
-    },
-}));
+import MainPage from '../../components/pages/mainPage';
+import ProductPage from '../../components/pages/productPage'
 
 export default function App() {
-    const classes = useStyles();
     return (
-        <div>
-            <Grid
-                container
-                direction="row"
-                justify="flex-end">
-                <Button href='#' color="primary" className={classes.button}>Log IN</Button>
-            </Grid>
-            <Typography variant="h3" style={{margin: '25px'}}>
-                Products List
-            </Typography>
-            <TableData/>
-
-            <ModalData/>
-
-            <Footer/>
-        </div>
+        <Switch>
+            <Route exact path='/' component={MainPage}/>
+            <Route path='/:id(\d+)' render={props => <ProductPage {...props}/>}/>
+        </Switch>
     )
 };
 

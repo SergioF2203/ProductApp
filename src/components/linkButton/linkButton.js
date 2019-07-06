@@ -9,9 +9,6 @@ const LinkButton = (props) => {
             className={classes.link}
             component="button"
             variant="body2"
-            onClick={() => {
-                alert("I'm a button.");
-            }}
         >
             {props.title}
         </Link>
